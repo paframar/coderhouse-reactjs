@@ -1,17 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import Navbar from './components/Navbar';
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
+function App() {
+  return (
+    <div className="App">
+
+      <Navbar
+        link1="Categorias"
+        link2="Ofertas"
+        link3="Vender"
+        link4="Ayuda"
+        btnContent1="Registrarse"
+        btnContent2="Loguearse"
+      />
+
+    </div>
+  );
+}
+
+
+ReactDOM.render(<App/>, document.getElementById("root"));
+
