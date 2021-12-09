@@ -17,7 +17,7 @@ function App() {
         btnContent2="Loguearse"
       />
 
-      <ItemListContainer />
+      <ItemListContainer greeting="Bienvenido. Aquí se detallarán sus items." />
 
     </div>
   );
