@@ -1,35 +1,49 @@
 import React from 'react';
+import CartWidget from './CartWidget';
 
-const Navbar = () =>{
+const Navbar = (props) =>{
     
     return(
         <nav>
-            <div className="nav-wrapper">
+            <div className="navbar">
 
-                <i className="fas fa-shopping-bag medium"/>
+                <i className="logo center material-icons">cloud</i>
                 
-                <a href="#!" className="brand-logo center">cloud-commerce</a>
+                <h2>cloudcommerce.com</h2>
 
                 <ul className="right">
 
-                    <li><a href="sass.html"><i className="center material-icons">search</i>Buscar</a></li>
+                    <li className="navbar-li"><a className="link-navbar" href="sass.html"><i className="center material-icons">search</i>
+                    {props.link1}</a></li>
 
-                    <li><a href="badges.html"><i className="center material-icons">whatshot</i>Ofertas</a></li>
+                    <li className="navbar-li"><a className="link-navbar" href="badges.html"><i className="center material-icons">whatshot</i>
+                    {props.link2}</a></li>
 
-                    <li><a href="collapsible.html"><i className="center material-icons">watch_later</
-                    i>Historial</a></li>
+                    <li className="navbar-li"><a className="link-navbar" href="collapsible.html"><i className="center material-icons">watch_later</i>
+                    {props.link3}</a></li>
 
-                    <li><a className="center" href="collapsible.html"><i className="material-icons">notifications</
-                    i>Notificaciones</a></li>
-
-                    <a href="/" className="center waves-effect waves-light btn-medium"><i className="material-icons right">account_circle</i>Ingresar</a>
-                   
-                    <a href="/" className="center waves-effect waves-light btn-medium"><i className="material-icons right">create</i>Registrarse</a>          
-
+                    <li className="navbar-li"><a className="link-navbar" href="collapsible.html"><i className="material-icons">help</i>
+                    {props.link4}</a></li>
+                    
                 </ul>
+
+
+                <div className="nav-btns-container">
+
+                    <a href="/" className="btn-navbar"><i className="material-icons right">account_circle</i>
+                        {props.btnContent1}</a>
+                    
+                    <a href="/" className="btn-navbar"><i className="material-icons right">create</i>{props.btnContent2}</a>          
+
+                    <CartWidget/>
+                
+                </div>
+                
+
             </div>
         </nav>
-    );
+
+);
 
 };
 
