@@ -16,7 +16,7 @@ const ItemListContainer = (props) =>{
         }
     }
     
-    const decreaseCount = (countParam, stockParam) => {
+    const decreaseCount = (countParam) => {
 
         if (countParam > 1){
             setCount(count-1);

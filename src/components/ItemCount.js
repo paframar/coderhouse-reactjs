@@ -4,7 +4,6 @@ import React from 'react';
 
 const ItemCount = ({displayValue, stock, onAdd, onRemove}) => {
     
-    
     return (
 
         <div className="item-count">
@@ -14,7 +13,7 @@ const ItemCount = ({displayValue, stock, onAdd, onRemove}) => {
             <div className="item-count-add-ui">
 
                 {/* boton - */}
-                <button className="item-count-add-ui-button" onClick= {()=>onRemove(displayValue, stock)} > - </button>
+                <button className="item-count-add-ui-button" onClick= {()=>onRemove(displayValue)} > - </button>
                 
                 {/* resultado */}
                 <div className="item-count-add-ui-viewer">{displayValue}</div>
@@ -27,6 +26,7 @@ const ItemCount = ({displayValue, stock, onAdd, onRemove}) => {
             <button className="item-count-button">Agregar</button>
             
         </div>
+
     );
 
 
