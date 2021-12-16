@@ -13,7 +13,7 @@ const Navbar = (props) =>{
 
                 <ul className="right">
 
-                    <li className="navbar-li"><a className="link-navbar" href="sass.html"><i className="center material-icons">search</i>
+                    <li className="navbar-li"><a className="link-navbar" href="/home"><i className="center material-icons">home</i>
                     {props.link1}</a></li>
 
                     <li className="navbar-li"><a className="link-navbar" href="badges.html"><i className="center material-icons">whatshot</i>
@@ -30,7 +30,7 @@ const Navbar = (props) =>{
 
                 <div className="nav-btns-container">
 
-                    <a href="/" className="btn-navbar"><i className="material-icons right">account_circle</i>
+                    <a href="/home" className="btn-navbar"><i className="material-icons right">account_circle</i>
                         {props.btnContent1}</a>
                     
                     <a href="/" className="btn-navbar"><i className="material-icons right">create</i>{props.btnContent2}</a>          
