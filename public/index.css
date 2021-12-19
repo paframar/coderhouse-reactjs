@@ -129,8 +129,13 @@ li, i{
 
     padding: 10px;
 
-    margin-bottom: 15px;
+    margin: 0 0 10px 10px;
+    width: 30%;
 
+}
+
+.item-img{
+    height: 100px;
 }
 
 /* ITEM LIST */

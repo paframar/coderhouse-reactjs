@@ -30,11 +30,10 @@ const Item = ({id, name, imgURL, price}) => {
   
     return (
         <div className="item">
-
             <h3>ID: {id}</h3>
-            <h2>Name: {name}</h2>
+            <h3>Name: {name}</h3>
             <p>Price: {price}</p>
-            <img src={imgURL} alt="" />
+            <img className="item-img" src={imgURL} alt="" />
             <ItemCount stock={5} displayValue={count} onAdd={increaseCount} onRemove={decreaseCount} />
         </div>
     );
