@@ -1,15 +1,8 @@
 import React from 'react';
-import {useEffect} from 'react';
 import {useState} from 'react';
-import {useParams} from 'react';
-
 import ItemCount from './ItemCount';
 
-import data from '../data';
-
-const productos = data;
-
-const Item = () => {
+const Item = ({id, name, imgURL, price}) => {
     
     // ..........................................
 
@@ -34,33 +27,14 @@ const Item = () => {
     }
 
     // ..........................................
-
-    const [products, setProducts]=useState([])
-    const {id} = useParams()
-    
-    useEffect(()=>{
-        const promise = getItems()
-        promise.then(json=> {setProducts(json)})
-    }, [id, products])
-
-    const getItems = () => {
-
-        const promise = new Promise((resolve, reject) =>{
-
-            setTimeout(()=>{
-                resolve(productos);
-            }, 3000)
-
-        })
-
-        return promise
-
-    }
   
     return (
         <div className="item">
 
-          
+            <h3>ID: {id}</h3>
+            <h2>Name: {name}</h2>
+            <p>Price: {price}</p>
+            <img src={imgURL} alt="" />
             <ItemCount stock={5} displayValue={count} onAdd={increaseCount} onRemove={decreaseCount} />
         </div>
     );

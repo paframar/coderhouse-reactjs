@@ -12,10 +12,8 @@ const ItemListContainer = (props) =>{
 
                 <div className = "item-list-container">
                     <ItemList/>
-                    <ItemList/>
-                    <ItemList/>
-                    <ItemList/>
                 </div>
+                    
             </div>
 
     );

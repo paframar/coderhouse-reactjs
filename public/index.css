@@ -129,6 +129,8 @@ li, i{
 
     padding: 10px;
 
+    margin-bottom: 15px;
+
 }
 
 /* ITEM LIST */
@@ -140,6 +142,7 @@ li, i{
     border-width: 2px;
 
     display:flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
