@@ -6,7 +6,7 @@ import Item from './Item';
 import data from '../data';
 
 const ItemList = () => {
-    
+
     const [products, setProducts] = useState([]);
 
     // render inicial
@@ -22,24 +22,26 @@ const ItemList = () => {
         console.log('este es mi estado: ', products)
     }, [products])
 
+    // petición al server
     const getProducts = () => {
         return new Promise((resolve, reject)=>{
             setTimeout(()=>{
-                // let didSucceed = Math.random() >= 0.5;
-                // console.log(didSucceed);
-                // didSucceed ? 
                     resolve(data)
-                    // :reject('esta mal');
             }, 2000)
         })
     }
 
+    // render function
     const renderItems = products.map(product => {
         return (
-            <Item id={product.id} name={product.name} imgURL={product.imgUrl} price={product.price} />
+            <Item 
+                id={product.id} 
+                name={product.name} 
+                imgURL={product.imgUrl} 
+                price={product.price} 
+                />
         )
     })
-
 
     return (
         

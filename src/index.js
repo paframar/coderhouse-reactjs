@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
 
+import ItemListContainer from './components/ItemListContainer';
 import Navbar from './components/Navbar';
 
+
+
 function App() {
+  
+  
+
   return (
 
     <BrowserRouter>
@@ -14,18 +20,15 @@ function App() {
       link1="Categorias"
       link2="Ofertas"
       link3="Historial"
-      link4="Ay   uda"
+      link4="Ayuda"
       btnContent1="Registrarse"
       btnContent2="Loguearse"
     />
 
     <Routes>
 
-      <Route exact path="/home" element={
-
-        
-        <ItemListContainer greeting="Bienvenido. Aquí se detallarán sus items." />
-      }/>
+      <Route exact path="/home" element={<ItemListContainer greeting="Aquí se detallarán sus items." />}/>
+      <Route exact path="/itemDetail/:id" element={<ItemDetailContainer />}/>
 
     </Routes>
     

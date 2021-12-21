@@ -1,6 +1,4 @@
-
 import React from 'react';
-
 
 const ItemCount = ({displayValue, stock, onAdd, onRemove}) => {
     
