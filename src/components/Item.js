@@ -35,7 +35,6 @@ const Item = ({id, name, imgURL, price}) => {
             <p>Price: {price}</p>
             <img className="item-img" src={imgURL} alt="" />
             <ItemCount stock={5} displayValue={count} onAdd={increaseCount} onRemove={decreaseCount} />
-            <a href={`/itemDetail/${id}`}>Ver Detalles</a>
         </div>
     );
 

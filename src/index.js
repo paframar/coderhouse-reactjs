@@ -6,6 +6,8 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
 import Navbar from './components/Navbar';
 
+import cartContext from '../src/context/cartContext'
+
 
 
 function App() {
