@@ -18,21 +18,21 @@ function App() {
 
     <BrowserRouter>
 
-    <Navbar
-      link1="Categorias"
-      link2="Ofertas"
-      link3="Historial"
-      link4="Ayuda"
-      btnContent1="Registrarse"
-      btnContent2="Loguearse"
-    />
+      <Navbar
+        link1="Categorias"
+        link2="Ofertas"
+        link3="Historial"
+        link4="Ayuda"
+        btnContent1="Registrarse"
+        btnContent2="Loguearse"
+      />
 
-    <Routes>
+      <Routes>
 
-      <Route exact path="/home" element={<ItemListContainer greeting="Aquí se detallarán sus items." />}/>
-      <Route exact path="/itemDetail/:id" element={<ItemDetailContainer />}/>
+        <Route exact path="/home" element={<ItemListContainer greeting="Aquí se detallarán sus items." />}/>
+        <Route exact path="/itemDetail/:id" element={<ItemDetailContainer />}/>
 
-    </Routes>
+      </Routes>
     
     </BrowserRouter>
     

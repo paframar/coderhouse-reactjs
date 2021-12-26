@@ -1,35 +1,37 @@
 import React from 'react';
 import {useState} from 'react';
-import {useParams} from 'react';
+import {useParams} from 'react-router';
 import {useEffect} from 'react';
 
 import ItemDetail from './ItemDetail';
 import data from '../data';
 
-
 const ItemDetailContainer = () => {
 
     const [item, setItem] = useState([]);
-    const {id} = useParams();
     
+    let itemID = useParams();
+
     useEffect(()=>{
-        const promise = getItem({id});
+        const promise = getItem({itemID});
         promise.then(item => {setItem(item)});
-    }, [id])
+    }, [itemID])
 
     // petición al server
     const getItem = (id) => {
         return new Promise((resolve, reject)=>{
             setTimeout(()=>{
                     resolve(
-                        data.filter(id => data.id === id)
+                        data.filter(item => data.id === id)
                     )
             }, 2000)
         })
     }
+
+    console.log(item);
     
-    const renderItemDetail = ()=>{
-        return (<ItemDetail Item={item}/>)  
+    let renderItemDetail = ()=>{
+        return <ItemDetail Item={item}/>  
     }
 
 

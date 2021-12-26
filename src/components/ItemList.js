@@ -6,14 +6,18 @@ import Item from './Item';
 const ItemList = ({items}) => {
 
     // render function
-    const renderItems = items.map(items => {
+    const renderItems = items.map(item => {
+
         return (
-            <Item 
-                id={items.id} 
-                name={items.name} 
-                imgURL={items.imgUrl} 
-                price={items.price} 
+
+                <Item 
+                    key={item.id.toString()}
+                    id={item.id} 
+                    name={item.name} 
+                    imgURL={item.imgUrl} 
+                    price={item.price} 
                 />
+            
         )
     })
 
