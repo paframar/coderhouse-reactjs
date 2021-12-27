@@ -9,7 +9,7 @@ const Navbar = (props) =>{
 
                 <i className="logo center material-icons">cloud</i>
                 
-                <h2>cloudcommerce.com</h2>
+                <h2> <a className="nav-brand" href="/"> cloudcommerce.com </a> </h2>
 
                 <ul className="right">
 

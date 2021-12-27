@@ -11,13 +11,13 @@ const ItemCount = ({displayValue, stock, onAdd, onRemove}) => {
             <div className="item-count-add-ui">
 
                 {/* boton - */}
-                <button className="item-count-add-ui-button" onClick= {()=>onRemove(displayValue)} > - </button>
+                <button className="item-count-button" onClick= {()=>onRemove(displayValue)} > - </button>
                 
                 {/* resultado */}
                 <div className="item-count-add-ui-viewer">{displayValue}</div>
 
                 {/* boton + */}
-                <button className="item-count-add-ui-button" onClick= {()=>onAdd(displayValue, stock)} > + </button>
+                <button className="item-count-button" onClick= {()=>onAdd(displayValue, stock)} > + </button>
 
             </div>
 

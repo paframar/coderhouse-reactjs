@@ -14,6 +14,7 @@ const ItemList = ({items}) => {
                     key={item.id.toString()}
                     id={item.id} 
                     name={item.name} 
+                    category={item.category} 
                     imgURL={item.imgUrl} 
                     price={item.price} 
                 />

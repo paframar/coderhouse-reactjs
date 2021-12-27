@@ -1,12 +1,13 @@
 import React from 'react';
 
-const Item = ({id, name, imgURL, price}) => {
+const Item = ({id, name, imgURL, price, category}) => {
 
     return (
         <div className="item">
-            <h3>ID: {id}</h3>
-            <h3>Name: {name}</h3>
-            <p>Price: {price}</p>
+            <h3>{id}</h3>
+            <h3>{name}</h3>
+            <h4>{category}</h4>
+            <p>AR$ {price}</p>
             <img className="item-img" src={imgURL} alt="" />
             <a href= {`/itemDetail/${id}`} className="item-btn-detail" >Ver Más</a>
         </div>

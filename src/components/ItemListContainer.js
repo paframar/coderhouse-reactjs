@@ -29,8 +29,6 @@ const ItemListContainer = (props) =>{
 
             <div>
                 
-                <p>{props.greeting}</p>
-
                 <div className = "item-list-container">
                     <ItemList items={items}/>
                 </div>

@@ -28,24 +28,32 @@ const ItemDetail = ({itemParam}) =>{
         
         return (
         
-            <>
+            <div className="item-detail">
+
                 <img src={itemParam.imgUrl} alt="" />
+
                 <div className="item-detail-div-right">
-                    <h2>{itemParam.id}</h2>
+
+                    <h4>{itemParam.id}</h4>
                     <h2>{itemParam.name}</h2>
                     <h3>{itemParam.category}</h3>
                     <h2>$ {itemParam.price}</h2>
                     <p>{itemParam.description}</p>
-                    <ItemCount stock={5} displayValue={count} onAdd={increaseCount} onRemove={decreaseCount} />
+                    
+                    <div className="item-detail-div-ui">
+                        <ItemCount stock={5} displayValue={count} onAdd={increaseCount} onRemove={decreaseCount} />
+                    </div>
+
                 </div>
-            </>
-        
+                
+            </div>
+    
         )
     }
 
     return(
 
-        <div className = "item-detail">
+        <div>
             {itemParam !== '' ? renderItemDetail(itemParam) : <p>cargando Item . . . .</p>}
         </div>
         

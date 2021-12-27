@@ -29,7 +29,7 @@ function App() {
 
       <Routes>
 
-        <Route exact path="/home" element={<ItemListContainer greeting="Aquí se detallarán sus items." />}/>
+        <Route exact path="/" element={<ItemListContainer greeting="Aquí se detallarán sus items." />}/>
         <Route exact path="/itemDetail/:id" element={<ItemDetailContainer />}/>
 
       </Routes>
