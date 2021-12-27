@@ -8,36 +8,45 @@ import data from '../data';
 
 const ItemDetailContainer = () => {
 
-    const [item, setItem] = useState([]);
+    const [item, setItem] = useState('');
+    
+    
+    // petición al server
     
     let itemID = useParams();
-
-    useEffect(()=>{
-        const promise = getItem({itemID});
-        promise.then(item => {setItem(item)});
-    }, [itemID])
-
-    // petición al server
+    
+    itemID = Number(itemID.id)
+    
     const getItem = (id) => {
         return new Promise((resolve, reject)=>{
             setTimeout(()=>{
                     resolve(
-                        data.filter(item => data.id === id)
+                        data.filter(item => item.id === id)
                     )
             }, 2000)
         })
     }
-
-    console.log(item);
     
-    let renderItemDetail = ()=>{
-        return <ItemDetail Item={item}/>  
-    }
+    useEffect(()=>{
+            
+        const promise = getItem(itemID);
+        promise.then(itemResult => {
+            setItem(itemResult[0]);
+            console.log('estado:', item);
+        });
 
+    }, [item]);
+
+
+    // console.log(item);
+    
+    // let renderItemDetail = ()=>{
+    //     return <ItemDetail Item={item}/>  
+    // }
 
     return (
         <div className="item-detail-container">
-            {data.length > 0 ? renderItemDetail : <p>cargando detalle...</p> }
+            {item !== {} ? <ItemDetail itemParam={item} ></ItemDetail> : <p>cargando detalle...</p> }
         </div>
     )
 }

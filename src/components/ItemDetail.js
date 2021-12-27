@@ -2,7 +2,7 @@ import React from 'react';
 import {useState} from 'react';
 import ItemCount from './ItemCount';
 
-const ItemDetail = (item) =>{
+const ItemDetail = ({itemParam}) =>{
 
     const [count, setCount] = useState(1);
     
@@ -24,19 +24,31 @@ const ItemDetail = (item) =>{
         }
     }
 
-    console.log('item detail')
+    const renderItemDetail = (itemParam) => {
+        
+        return (
+        
+            <>
+                <img src={itemParam.imgUrl} alt="" />
+                <div className="item-detail-div-right">
+                    <h2>{itemParam.id}</h2>
+                    <h2>{itemParam.name}</h2>
+                    <h3>{itemParam.category}</h3>
+                    <h2>$ {itemParam.price}</h2>
+                    <p>{itemParam.description}</p>
+                    <ItemCount stock={5} displayValue={count} onAdd={increaseCount} onRemove={decreaseCount} />
+                </div>
+            </>
+        
+        )
+    }
 
     return(
-        
-        <div className = "item-detail">
-            <img className = "item-detail-img" src={item.imgURL} alt="" />
-            <h2>{item.name}</h2>
-            <h3>{item.category}</h3>
-            <h2>$ {item.price}</h2>
-            <p>{item.description}</p>
-            <ItemCount stock={5} displayValue={count} onAdd={increaseCount} onRemove={decreaseCount} />
-        </div>
 
+        <div className = "item-detail">
+            {itemParam !== '' ? renderItemDetail(itemParam) : <p>cargando Item . . . .</p>}
+        </div>
+        
     )
 
 }
