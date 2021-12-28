@@ -11,9 +11,9 @@ const Navbar = (props) =>{
                 
                 <h2> <a className="nav-brand" href="/"> cloudcommerce.com </a> </h2>
 
-                <ul className="right">
+                <ul>
 
-                    <li className="navbar-li"><a className="link-navbar" href="/home"><i className="center material-icons">home</i>
+                    <li className="navbar-li"><a className="link-navbar" href="/categories"><i className="center material-icons">home</i>
                     {props.link1}</a></li>
 
                     <li className="navbar-li"><a className="link-navbar" href="badges.html"><i className="center material-icons">whatshot</i>

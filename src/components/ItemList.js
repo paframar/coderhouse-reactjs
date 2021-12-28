@@ -1,15 +1,30 @@
 import React from 'react';
-
-
+import {useState, useEffect} from 'react';
 import Item from './Item';
+
 
 const ItemList = ({items}) => {
 
+    const [message, setMessage] = useState('Cargando items...');
+
+    useEffect(()=>{
+
+        setTimeout(()=>{
+            if (items.length === 0){
+                setMessage('No hay items para mostrar.');
+            }else{
+                setMessage('Cargando items...');
+            }
+        }, 3000);
+
+    }, [items]);
+        
+
     // render function
-    const renderItems = items.map(item => {
+    const renderItems = items.map( item => {
 
         return (
-
+            
                 <Item 
                     key={item.id.toString()}
                     id={item.id} 
@@ -20,11 +35,15 @@ const ItemList = ({items}) => {
                 />
             
         )
+
     })
+                
+    
+
 
     return (
         <div className="item-list">
-            {items.length > 0 ? renderItems : <p>loading...</p> }
+            {items.length > 0 ? renderItems : <p>{message}</p>}
         </div>
     )
 

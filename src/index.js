@@ -5,6 +5,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 
 import ItemListContainer from './components/ItemListContainer';
 import Navbar from './components/Navbar';
+import SubMenuCategories from './components/SubMenuCategories';
 
 import cartContext from '../src/context/cartContext'
 
@@ -30,7 +31,9 @@ function App() {
       <Routes>
 
         <Route exact path="/" element={<ItemListContainer greeting="Aquí se detallarán sus items." />}/>
-        <Route exact path="/itemDetail/:id" element={<ItemDetailContainer />}/>
+        <Route exact path="/item/:id" element={<ItemDetailContainer />} />
+        <Route exact path="/categories" element={<SubMenuCategories />} />
+        <Route exact path="/category/:category" element={<ItemListContainer />}/>
 
       </Routes>
     

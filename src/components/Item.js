@@ -9,7 +9,7 @@ const Item = ({id, name, imgURL, price, category}) => {
             <h4>{category}</h4>
             <p>AR$ {price}</p>
             <img className="item-img" src={imgURL} alt="" />
-            <a href= {`/itemDetail/${id}`} className="item-btn-detail" >Ver Más</a>
+            <a href= {`/item/${id}`} className="item-btn-detail" >Ver Más</a>
         </div>
     );
 

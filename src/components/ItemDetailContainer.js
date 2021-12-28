@@ -10,12 +10,12 @@ const ItemDetailContainer = () => {
 
     const [item, setItem] = useState('');
     
-    
     // petición al server
     
     let itemID = useParams();
+
+    itemID = Number(itemID.id);
     
-    itemID = Number(itemID.id)
     
     const getItem = (id) => {
         return new Promise((resolve, reject)=>{
