@@ -21,7 +21,7 @@ const ItemCount = ({displayValue, stock, onAdd, onRemove}) => {
 
             </div>
 
-            <button className="item-count-button">Agregar</button>
+            <button className="item-count-button">Agregar al carrito</button>
             
         </div>
 

@@ -42,6 +42,7 @@ const ItemDetail = ({itemParam}) =>{
                     
                     <div className="item-detail-div-ui">
                         <ItemCount stock={5} displayValue={count} onAdd={increaseCount} onRemove={decreaseCount} />
+                        <button className ="btn-item-detail">Finalizar Compra</button>
                     </div>
 
                 </div>

@@ -2,14 +2,6 @@ import React from 'react';
 import CartWidget from './CartWidget';
 
 const Navbar = (props) =>{
-
-    const handleClickCategories = (e) => {
-        window.dispatchEvent('clickCategories');
-    }
-
-    window.addEventListener('clickCategories', ()=>{
-        console.log('hola');
-    })
     
     return(
 
@@ -23,7 +15,7 @@ const Navbar = (props) =>{
 
                 <ul>
 
-                    <li><button className="link-navbar" onClick={handleClickCategories}>
+                    <li><button className="link-navbar">
                     <i className="center material-icons">home</i>{props.link1}</button></li>
 
                     <li><button className="link-navbar" href="badges.html">

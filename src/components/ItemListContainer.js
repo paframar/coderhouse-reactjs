@@ -8,16 +8,27 @@ import SubMenuCategories from './SubMenuCategories';
 
 const ItemListContainer = () =>{
 
+
+
+    
+
     let params = useParams();
     const [items, setItems] = useState([]);
-    const [categoriesOpen, setCategoriesOpen] = useState(false);
 
-    // trae todos los items para el route "/"
+    // estado de apertura de submenu categories --- pendiente 
+    const [categoriesOpen, setCategoriesOpen] = useState(true);
+
+
     const getItems = (params) => {
         return new Promise((resolve, reject)=>{
             setTimeout(()=>{
                     if(params.category !== undefined){
-                        resolve(data.filter(item=> item.category.toLowerCase() === params.category.toLowerCase()));
+                        resolve(
+                            data.filter(
+                                item=>
+                                    (item.category.toLowerCase().split(' ').join('')) === params.category
+                            )                            
+                        );
                     }else{
                         resolve(data)
                     }
@@ -30,12 +41,6 @@ const ItemListContainer = () =>{
         const promise = getItems(params);
         promise.then(resolved => {setItems(resolved)})
     }, [params]);
-
-
-    // useEffect CategoriesSubMenu
-    useEffect(()=>{
-        setCategoriesOpen({categoriesOpen});
-    }, [categoriesOpen]);
 
     return(
 

@@ -14,6 +14,7 @@ const SubMenuCategories = () => {
                     <li><a className="link-navbar" href="/category/clothes">Clothes</a></li>
                     <li><a className="link-navbar" href="/category/accesories">Accesories</a></li>
                     <li><a className="link-navbar" href="/category/watches">Watches</a></li>
+                    <li><a className="link-navbar" href="/category/makeup">Make up</a></li>
                 </ul>  
     
             </div>

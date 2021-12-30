@@ -8,12 +8,13 @@ import data from '../data';
 
 const ItemDetailContainer = () => {
 
+    // inicializa el item que va a mostrar como ""
     const [item, setItem] = useState('');
     
-    // petición al server
-    
+    // toma el id de la URL
     let itemID = useParams();
-
+    
+    // pasa a number ese ID
     itemID = Number(itemID.id);
     
     
@@ -32,17 +33,10 @@ const ItemDetailContainer = () => {
         const promise = getItem(itemID);
         promise.then(itemResult => {
             setItem(itemResult[0]);
-            console.log('estado:', item);
         });
 
-    }, [item]);
+    });
 
-
-    // console.log(item);
-    
-    // let renderItemDetail = ()=>{
-    //     return <ItemDetail Item={item}/>  
-    // }
 
     return (
         <div className="item-detail-container">
