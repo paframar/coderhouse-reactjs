@@ -1,0 +1,33 @@
+/* SUB-MENU */
+
+.sub-menu{
+    color: var(--white);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--red);
+
+    width: 15vw;
+    border-radius: 8px;
+    box-shadow: 8px 8px 8px rgba(140, 120, 120, 0.3);
+    margin: 5px 5px 5px 5px;
+
+}
+
+.sub-menu li, a{
+    
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 5px;
+    padding: 5px 10px 5px 10px;
+    width: 10vw;
+
+    display:flex; 
+    justify-content: center;
+    
+}
+
+.sub-menu a:hover{
+    background-color: var(--white);
+    color: var(--red2);
+}

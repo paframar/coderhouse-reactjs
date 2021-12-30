@@ -1,0 +1,56 @@
+/* ITEMCOUNT */
+
+.item-count{
+    height: 80px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* interfaz botones + y - */
+.item-count-add-ui{
+    display:flex;
+    justify-items: center;
+    align-items: center;    
+    margin-inline: 12px;
+}
+
+
+/* visor de cantidad a agregar */
+.item-count-add-ui-viewer{
+
+    border-radius: 5px;
+
+    color: var(--red);
+    font-size: 18px;
+    font-weight: bolder;
+
+    padding-inline:20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+
+/* boton para agregar cantidad */
+.item-count-button{
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    border-width: 1px;
+
+    color: var(--red3);
+    border-style: none;
+    background-color: #F0F0F0;
+    padding-inline:20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* HOVER boton para agregar cantidad */
+.item-count-button:hover{
+    border-radius: 10px;
+    border-color: var(--red3);
+    cursor:pointer;
+    color: #F0F0F0;
+    background-color: #D13639;
+}

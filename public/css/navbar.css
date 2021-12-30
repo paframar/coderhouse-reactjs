@@ -1,0 +1,95 @@
+
+.navbar{
+    color: var(--white);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--red);
+    height: 10vh;
+    width: 100vw;
+    margin: px;
+}
+
+.nav-brand{ 
+    height: 6vh;
+    padding-inline: 10px;
+    color: var(--white);
+}
+
+.nav-brand:hover{
+    color: var(--realWhite  );
+    background-color: rgba(255, 255, 255, 0.07)
+
+}
+
+.navbar ul{
+    margin: 0 8px 0 20px;
+    display:flex;
+    justify-content: space-evenly;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-bar li, i{
+    padding-right: 10px;
+}
+
+.navbar .logo{
+    padding-left: 20px;
+}
+
+.nav-btns-container{
+    display:flex;
+    align-items: center;
+}
+
+.link-navbar{
+
+    display:flex;
+    align-items: center;
+    padding-inline: 10px;
+    margin-inline: 5px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition:450ms;
+
+    height: 6vh;
+    color: var(--white);
+    background-color: var(--red);
+    border-style: none;
+
+}
+
+.link-navbar:hover{
+    background-color: #F12B15;
+    color: var(--realWhite);
+    cursor: pointer;
+}
+
+.nav-btns-container{
+    display:flex;
+    justify-content: space-evenly;
+
+    padding-inline: 2vw;
+}
+
+/* nav shopping cart */
+.shopping-cart{
+    transition: 350ms ease-in-out;
+    right: 20px;
+    display:flex;
+    padding-inline: 20px;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    color:var(--white)
+}
+
+.shopping-cart:hover{
+
+    background-color:var(--red2);
+
+    color:var(--realWhite);
+    cursor:pointer;
+}

@@ -2,9 +2,19 @@ import React from 'react';
 import CartWidget from './CartWidget';
 
 const Navbar = (props) =>{
+
+    const handleClickCategories = (e) => {
+        window.dispatchEvent('clickCategories');
+    }
+
+    window.addEventListener('clickCategories', ()=>{
+        console.log('hola');
+    })
     
     return(
+
         <nav>
+
             <div className="navbar">
 
                 <i className="logo center material-icons">cloud</i>
@@ -13,27 +23,27 @@ const Navbar = (props) =>{
 
                 <ul>
 
-                    <li className="navbar-li"><a className="link-navbar" href="/categories"><i className="center material-icons">home</i>
-                    {props.link1}</a></li>
+                    <li><button className="link-navbar" onClick={handleClickCategories}>
+                    <i className="center material-icons">home</i>{props.link1}</button></li>
 
-                    <li className="navbar-li"><a className="link-navbar" href="badges.html"><i className="center material-icons">whatshot</i>
-                    {props.link2}</a></li>
+                    <li><button className="link-navbar" href="badges.html">
+                    <i className="center material-icons">whatshot</i>{props.link2}</button></li>
 
-                    <li className="navbar-li"><a className="link-navbar" href="collapsible.html"><i className="center material-icons">watch_later</i>
-                    {props.link3}</a></li>
+                    <li><button className="link-navbar" href="collapsible.html">
+                    <i className="center material-icons">watch_later</i>{props.link3}</button></li>
 
-                    <li className="navbar-li"><a className="link-navbar" href="collapsible.html"><i className="material-icons">help</i>
-                    {props.link4}</a></li>
+                    <li><button className="link-navbar" href="collapsible.html">
+                    <i className="material-icons">help</i>{props.link4}</button></li>
                     
                 </ul>
 
 
                 <div className="nav-btns-container">
 
-                    <a href="/home" className="btn-navbar"><i className="material-icons right">account_circle</i>
-                        {props.btnContent1}</a>
+                    <button href="/home" className="link-navbar"><i className="material-icons right">account_circle</i>
+                        {props.btnContent1}</button>
                     
-                    <a href="/" className="btn-navbar"><i className="material-icons right">create</i>{props.btnContent2}</a>          
+                    <button href="/" className="link-navbar"><i className="material-icons right">create</i>{props.btnContent2}</button>          
 
                     <CartWidget/>
                 
@@ -41,9 +51,10 @@ const Navbar = (props) =>{
                 
 
             </div>
+
         </nav>
 
-);
+    );
 
 };
 

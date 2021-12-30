@@ -1,0 +1,12 @@
+/* ITEM DETAIL CONTAINER */
+
+.item-detail-container{
+    box-shadow: 8px 8px 8px rgba(140, 120, 120, 0.3);
+    border-radius: 8px;
+    background-color: var(--realWhite);
+    color: var(--black);
+
+    border-width: 1px;
+    margin: 5px 5px 5px 5px;
+    padding:20px;
+}

@@ -1,0 +1,18 @@
+/* ITEM LIST */
+.item-list{
+    box-shadow: 8px 8px 8px rgba(140, 120, 120, 0.3);
+
+    border-radius: 8px;
+
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 10px;
+    margin-top: 5px;
+
+    background-color: white;
+
+}
