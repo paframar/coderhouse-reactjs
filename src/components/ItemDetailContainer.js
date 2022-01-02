@@ -16,8 +16,7 @@ const ItemDetailContainer = () => {
     
     // pasa a number ese ID
     itemID = Number(itemID.id);
-    
-    
+
     const getItem = (id) => {
         return new Promise((resolve, reject)=>{
             setTimeout(()=>{

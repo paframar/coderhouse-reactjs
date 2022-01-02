@@ -1,8 +1,11 @@
 import React from 'react';
 
 const ItemCount = ({displayValue, stock, onAdd, onRemove}) => {
+
+    
     
     return (
+        <div>
 
         <div className="item-count">
 
@@ -21,10 +24,12 @@ const ItemCount = ({displayValue, stock, onAdd, onRemove}) => {
 
             </div>
 
-            <button className="item-count-button">Agregar al carrito</button>
-            
         </div>
 
+            
+
+            
+        </div>
     );
 
 

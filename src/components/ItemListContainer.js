@@ -8,10 +8,6 @@ import SubMenuCategories from './SubMenuCategories';
 
 const ItemListContainer = () =>{
 
-
-
-    
-
     let params = useParams();
     const [items, setItems] = useState([]);
 

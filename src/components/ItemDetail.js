@@ -1,10 +1,28 @@
 import React from 'react';
-import {useState} from 'react';
-import ItemCount from './ItemCount';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ItemCount from '../components/ItemCount';
 
 const ItemDetail = ({itemParam}) =>{
 
     const [count, setCount] = useState(1);
+
+    const [addedToCart, setAddedToCart] = useState(false);
+
+    const navigate = useNavigate();
+
+    const routeChange = () => {
+        navigate('/cart');
+    }
+
+    const handleAddToCart = () =>{
+        setAddedToCart(true);
+    }
+
+    useEffect(()=>{
+        
+    }, [addedToCart]);
+
     
     const increaseCount = (countParam, stockParam) => {
 
@@ -22,10 +40,10 @@ const ItemDetail = ({itemParam}) =>{
         }else{
             alert("El valor minimo debe ser 1.")
         }
-    }
+    }   
 
     const renderItemDetail = (itemParam) => {
-        
+ 
         return (
         
             <div className="item-detail">
@@ -40,12 +58,25 @@ const ItemDetail = ({itemParam}) =>{
                     <h2>$ {itemParam.price}</h2>
                     <p>{itemParam.description}</p>
                     
+                    
                     <div className="item-detail-div-ui">
-                        <ItemCount stock={5} displayValue={count} onAdd={increaseCount} onRemove={decreaseCount} />
-                        <button className ="btn-item-detail">Finalizar Compra</button>
+                    
+                        {addedToCart ? 
+                            <div className="item-detail-div-ui">
+                                <button className="item-detail-button" onClick={routeChange}>    Finalizar compra</button>
+                            </div>
+                            :
+                            <div className="item-detail-div-ui">
+                                <button className="item-detail-button" onClick={handleAddToCart}>Agregar al carrito</button>
+                                <ItemCount stock={5} displayValue={count} onAdd={increaseCount} onRemove={decreaseCount} />
+                            </div>   
+                        }
+
                     </div>
 
                 </div>
+
+                
                 
             </div>
     

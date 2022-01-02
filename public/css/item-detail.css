@@ -30,8 +30,33 @@
 }
 .item-detail-div-ui{
     display: flex;
-    flex-direction: row;
-    justify-content: end;
-    width: 70%;
+    justify-content: space-evenly;
+    align-items: center;
     font-weight: lighter;
+    height: 80px;
+}
+
+
+/* boton para agregar cantidad */
+.item-detail-button{
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    border-width: 1px;
+
+    color: var(--red3);
+    border-style: none;
+    background-color: #F0F0F0;
+    padding-inline:20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 40px;
+}
+
+/* HOVER boton para agregar cantidad */
+.item-detail-button:hover{
+    border-radius: 10px;
+    border-color: var(--red3);
+    cursor:pointer;
+    color: #F0F0F0;
+    background-color: #D13639;
 }
