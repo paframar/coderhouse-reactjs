@@ -1,31 +1,33 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ItemCount from '../components/ItemCount';
 
+import CartProvider from '../context/CartContext';
+
 const ItemDetail = ({itemParam}) =>{
-
+    
+    // cuenta del itemCount
     const [count, setCount] = useState(1);
-
+    
+    // state que cambia al hacer click en "Agregar al carrito"
     const [addedToCart, setAddedToCart] = useState(false);
-
+    
+    // hook para navegar hacia el carrito con btn en lugar de  usar <a>
     const navigate = useNavigate();
 
-    const routeChange = () => {
-        navigate('/cart');
+    const routeChange = (path) => {
+        navigate(path);
     }
 
+    // click en "Agregar al carrito"
     const handleAddToCart = () =>{
+        CartProvider.cartAdd(itemParam, count);
         setAddedToCart(true);
     }
 
-    useEffect(()=>{
-        
-    }, [addedToCart]);
-
-    
+    // () => incrementa la cuenta del ItemCount
     const increaseCount = (countParam, stockParam) => {
-
+        
         if (countParam < stockParam){
             setCount(count+1);
         }else{
@@ -33,6 +35,7 @@ const ItemDetail = ({itemParam}) =>{
         }
     }
     
+    // () => decrementa la cuenta del ItemCount
     const decreaseCount = (countParam) => {
 
         if (countParam > 1){
@@ -63,7 +66,8 @@ const ItemDetail = ({itemParam}) =>{
                     
                         {addedToCart ? 
                             <div className="item-detail-div-ui">
-                                <button className="item-detail-button" onClick={routeChange}>    Finalizar compra</button>
+                                <button className="item-detail-button" onClick={()=>routeChange('/')}>Seguir comprando</button>
+                                <button className="item-detail-button" onClick={()=>routeChange('/cart')}>Finalizar compra</button>
                             </div>
                             :
                             <div className="item-detail-div-ui">

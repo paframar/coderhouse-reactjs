@@ -59,7 +59,7 @@ const productsArray = [
 		"id": 8,
 		"imgUrl": "https://cdn.shopify.com/s/files/1/0438/5384/0533/files/ROCKSHELL_HEADER_736x.png?v=1616673460",
 		"name": "ROAMER OF SWITZERLAND",
-		"price": 29.80,
+		"price": 229.80,
 		"category":"Watches",
 		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut pariatur libero laborum ea iste culpa repellendus sunt temporibus magni, repudiandae eius possimus sed, odio fugiat vel, repellat distinctio? Nihil, perspiciatis rem dicta quis optio, vero nostrum harum animi saepe nisi consectetur dolores dolore aut vitae nulla blanditiis cumque sed ab?"
 	}

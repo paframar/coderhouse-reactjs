@@ -1,0 +1,35 @@
+.cart-view-container{
+    box-shadow: 8px 8px 8px rgba(140, 120, 120, 0.3);
+    border-radius: 8px;
+
+    background-color: var(--realWhite);
+    color: var(--black);
+    margin: 5px 5px 5px 5px;
+    padding:20px;
+
+    display:flex;
+    flex-direction: row;
+}
+
+.cart-view-item{
+    
+    box-shadow: 8px 8px 8px rgba(140, 120, 120, 0.3);
+
+    border-color: var(--black);
+    background-color: var(--realWhite);
+
+    border-radius: 10px;
+    border-style: none;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    padding: 10px;
+
+    margin:12px;
+    width: 30%;
+    
+}

@@ -1,4 +1,3 @@
-@import "/css/cart-widget.css";
 @import "/css/item-count.css";
 @import "/css/item-detail-container.css";
 @import "/css/item-detail.css";
@@ -8,3 +7,4 @@
 @import "/css/navbar.css";
 @import "/css/submenu.css";
 @import "/css/global.css";
+@import "/css/cart-view.css";

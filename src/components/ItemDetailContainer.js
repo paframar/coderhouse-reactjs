@@ -27,6 +27,16 @@ const ItemDetailContainer = () => {
         })
     }
     
+    // let order ={
+    //     buyer:{name:'pablo', phone:5555555, email:'email@mail.com'},
+    //     items:[
+    //         {id:1, title:'camisa', price:20},
+    //         {id:2, title:'pantalon', price:10},
+    //         {id:3, title:'medias', price:5}
+    //     ],
+    //     total:35
+    // }
+
     useEffect(()=>{
             
         const promise = getItem(itemID);
@@ -34,7 +44,7 @@ const ItemDetailContainer = () => {
             setItem(itemResult[0]);
         });
 
-    });
+    },[itemID]);
 
 
     return (

@@ -41,7 +41,6 @@ const ItemListContainer = () =>{
     return(
 
             <div>
-
                 
                 <div className = "item-list-container">
                     

@@ -1,41 +1,55 @@
+// libs
 import React from 'react';
+import {useState, useEffect, useContext} from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import ItemDetailContainer from './components/ItemDetailContainer';
 
+// hooks
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+
+// components
+import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
 import Navbar from './components/Navbar';
-import SubMenuCategories from './components/SubMenuCategories';
+import CartView from './components/CartView'
 
-import cartContext from '../src/context/cartContext';
+// context
+import CartContext from '../src/context/CartContext';
 
 
 
 function App() {
+
+  const [cart, setCart] = useContext(CartContext);
   
   return (
-
+    
     <BrowserRouter>
 
-      <Navbar
-        link1="Categorias"
-        link2="Ofertas"
-        link3="Historial"
-        link4="Ayuda"
-        btnContent1="Registrarse"
-        btnContent2="Loguearse"
-      />
+        <Navbar
+          link1="Categorias"
+          link2="Ofertas"
+          link3="Historial"
+          link4="Ayuda"
+          btnContent1="Registrarse"
+          btnContent2="Loguearse"
+          />
 
-      <Routes>
+        <CartContext.Provider value ={[cart, setCart]}>
+       
+            <Routes>
 
-        <Route exact path="/" element={<ItemListContainer />}/>
-        <Route exact path="/item/:id" element={<ItemDetailContainer />} />
-        <Route exact path="/category/:category" element={<ItemListContainer />}/>
+              <Route exact path="/" element={<ItemListContainer />}/>
+              <Route exact path="/cart" element={<CartView/>}/>
+              <Route exact path="/item/:id" element={<ItemDetailContainer />} />
+              <Route exact path="/category/:category" element={<ItemListContainer />}/>
 
-      </Routes>
-    
-    </BrowserRouter>
-    
+            </Routes>
+        
+        </CartContext.Provider>
+          
+      </BrowserRouter>
+
+
   );
 }
 
