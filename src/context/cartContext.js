@@ -1,89 +1,82 @@
-import React from 'react'
-import { useState } from 'react'
+import { createContext, useState, useEffect } from "react";
 
-const CartProvider = (props) => {
+export const Cart = createContext();
 
-    const [cart, setCart] = useState(
-        {items:[], quantities:[], finalPrice:0}
-    );
-
-    const setFinalPrice = (arrayItemsParam, arrayQuantitiesParam) => {
-        
-        let finalPriceResult = 0
+const Context = ({children}) => {
+    
+    const [cart, setCart] = useState({items:[], finalPrice:0});
 
 
-        for (let i = 0; i < arrayItemsParam.length; i++){
-
-                finalPriceResult += arrayItemsParam[i].price * arrayQuantitiesParam[i]
-
-        }
-
-        return finalPriceResult
+    const setFinalPrice = (arrayItemsParam) => {
+        let finalPrice = 0;
+        arrayItemsParam.map((cartItem)=>(
+            finalPrice += cartItem.quantity * cartItem.price
+        ))
+        return finalPrice
     }
-    
-    
-    const isInCart = (itemID) => (cart.items.some(
-        cart.items.id === itemID
-    ))
+    const isInCart = (itemIDParam) => {
+        cart.items.some((cartItem) => cartItem.id === itemIDParam);
+    }
 
 
-    const cartAdd = (itemParam, quantityParam) => {
+    const addToCart = (itemParam, quantityParam) => {
+        
+        // si el producto esta agregado al carrito
+        if (isInCart(itemParam.id)){
 
+           let newCartItems = [...cart.items]
+           
+           newCartItems.map(cartItem => (
+               (cartItem.id === itemParam.id) ? cartItem.quantity += quantityParam : null
+           ))
 
-        let newCartItems = []
-        let newCartQuantities = []
+           setCart({
+               items: newCartItems,
+               finalPrice: setFinalPrice(newCartItems)
+            });
 
-        // si no esta en el carrito
-        if (!isInCart(itemParam.id)){
-
-            // agrega el item al array de items
-            newCartItems = [...cart.items, itemParam];
-            
-            // agrega la cantidad  al array de cantidades
-            newCartQuantities = [...cart.quantities, quantityParam];     
-            
-        // si si esta en el carrito
+        // si el producto NO esta agregado en el carrito
         }else{
-            
-            newCartItems = [...cart.items];
-            newCartQuantities = [...cart.quantities];
 
-            for (let i = 0 ; i < cart.items.length ; i++){
-                if (cart.items[i].id === itemParam.id){
-                    cart.quantities[i] += quantityParam
-                }
-            }
+            // estructura un nuevo objeto
+            let newCartItem = itemParam;
+            
+            // agrega la propiedad 'quatity' al objeto
+            Object.defineProperty(newCartItem, 'quantity', {
+                value: quantityParam,
+                writable: true,
+                enumerable: true,
+                configurable: true
+            });
+
+            const newCartItems = [...cart.items, newCartItem]
+
+            console.log('newCartItems: ', newCartItems)
+
+            setCart({
+                items: newCartItems,
+                finalPrice: setFinalPrice(newCartItems)
+             });
+
+
+            console.log('----NUEVO OBJETO AGREGADO----')
+            console.log('newCartItem:', newCartItem)
+            console.dir('quantityParam: ', newCartItem.quantity)
+            console.log('CART ITEMS:', cart.items)
+            console.log('CART FINAL PRICE:', cart.finalPrice)
+            console.log('CART LENGHT: ', cart.items.length)
         }
 
-        setCart(
-            newCartItems, 
-            newCartQuantities, 
-            setFinalPrice(newCartItems, newCartQuantities)
-        )
-            
+
+        
     }
 
     return (
-        <CartContext.Provider value={[cart, setCart]}>
-            {props.children}
-        </CartContext.Provider>
-    );
-
+        <Cart.Provider 
+        value = {{cart, setCart, addToCart}}>
+            {children}
+        </Cart.Provider>
+    )
 }
 
-export default CartProvider;
-
-export const CartContext = React.createContext();
-
-
-
-
-
-    
-
-
-
-
-
-
-
+export default Context;

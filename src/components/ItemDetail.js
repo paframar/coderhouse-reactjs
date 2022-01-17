@@ -2,17 +2,21 @@ import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ItemCount from '../components/ItemCount';
 
-import CartProvider from '../context/CartContext';
+import { Cart } from '../context/CartContext';
+
+
 
 const ItemDetail = ({itemParam}) =>{
-    
+
+    const cartProvider = useContext(Cart);
+
     // cuenta del itemCount
     const [count, setCount] = useState(1);
     
     // state que cambia al hacer click en "Agregar al carrito"
     const [addedToCart, setAddedToCart] = useState(false);
     
-    // hook para navegar hacia el carrito con btn en lugar de  usar <a>
+    // hook para navegar hacia el carrito con btn en lugar de usar <a>
     const navigate = useNavigate();
 
     const routeChange = (path) => {
@@ -21,8 +25,8 @@ const ItemDetail = ({itemParam}) =>{
 
     // click en "Agregar al carrito"
     const handleAddToCart = () =>{
-        CartProvider.cartAdd(itemParam, count);
-        setAddedToCart(true);
+        cartProvider.addToCart(itemParam, count);
+        // setAddedToCart(true);
     }
 
     // () => incrementa la cuenta del ItemCount

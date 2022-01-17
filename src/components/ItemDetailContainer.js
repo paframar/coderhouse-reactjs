@@ -1,16 +1,19 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import {useParams} from 'react-router';
-import {useEffect} from 'react';
 
 import ItemDetail from './ItemDetail';
 import data from '../data';
 
+
+
 const ItemDetailContainer = () => {
 
+
+    
     // inicializa el item que va a mostrar como ""
     const [item, setItem] = useState('');
-    
+
     // toma el id de la URL
     let itemID = useParams();
     
@@ -26,16 +29,6 @@ const ItemDetailContainer = () => {
             }, 2000)
         })
     }
-    
-    // let order ={
-    //     buyer:{name:'pablo', phone:5555555, email:'email@mail.com'},
-    //     items:[
-    //         {id:1, title:'camisa', price:20},
-    //         {id:2, title:'pantalon', price:10},
-    //         {id:3, title:'medias', price:5}
-    //     ],
-    //     total:35
-    // }
 
     useEffect(()=>{
             
@@ -48,9 +41,9 @@ const ItemDetailContainer = () => {
 
 
     return (
-        <div className="item-detail-container">
-            {item !== {} ? <ItemDetail itemParam={item} ></ItemDetail> : <p>cargando detalle...</p> }
-        </div>
+            <div className="item-detail-container">
+                    {item !== {} ? <ItemDetail itemParam={item} ></ItemDetail> : <p>cargando detalle...</p> }
+            </div>
     )
 }
 
