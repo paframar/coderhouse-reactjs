@@ -26,7 +26,7 @@ const ItemDetail = ({itemParam}) =>{
     // click en "Agregar al carrito"
     const handleAddToCart = () =>{
         cartProvider.addToCart(itemParam, count);
-        // setAddedToCart(true);
+        setAddedToCart(true);
     }
 
     // () => incrementa la cuenta del ItemCount

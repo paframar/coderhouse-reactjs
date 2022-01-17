@@ -6,6 +6,17 @@ const Context = ({children}) => {
     
     const [cart, setCart] = useState({items:[], finalPrice:0});
 
+    useEffect(()=>{
+        cart.items.map((item)=>{
+            console.log('------------------')
+            console.log(item.id)
+            console.log(item.name)
+            console.log(item.price)
+            console.log(item.quantity)
+            console.log('------------------')
+        })
+        console.log(cart.finalPrice)
+    }, [cart])
 
     const setFinalPrice = (arrayItemsParam) => {
         let finalPrice = 0;
@@ -14,8 +25,19 @@ const Context = ({children}) => {
         ))
         return finalPrice
     }
+
     const isInCart = (itemIDParam) => {
-        cart.items.some((cartItem) => cartItem.id === itemIDParam);
+        console.log('buscando objeto de id = ', itemIDParam);
+
+        cart.items.map((cartItem) => {
+            if (cartItem.id === itemIDParam){
+                console.log('fue encontrado')
+                return true
+            }
+        });
+        console.log('no fue encontrado')
+        return false
+
     }
 
 
@@ -41,7 +63,7 @@ const Context = ({children}) => {
             // estructura un nuevo objeto
             let newCartItem = itemParam;
             
-            // agrega la propiedad 'quatity' al objeto
+            // agrega la propiedad 'quantity' al objeto
             Object.defineProperty(newCartItem, 'quantity', {
                 value: quantityParam,
                 writable: true,
@@ -57,14 +79,6 @@ const Context = ({children}) => {
                 items: newCartItems,
                 finalPrice: setFinalPrice(newCartItems)
              });
-
-
-            console.log('----NUEVO OBJETO AGREGADO----')
-            console.log('newCartItem:', newCartItem)
-            console.dir('quantityParam: ', newCartItem.quantity)
-            console.log('CART ITEMS:', cart.items)
-            console.log('CART FINAL PRICE:', cart.finalPrice)
-            console.log('CART LENGHT: ', cart.items.length)
         }
 
 
