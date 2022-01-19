@@ -2,32 +2,48 @@
 
 .sub-menu{
     color: var(--white);
+    
     display:flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: var(--red);
 
-    width: 15vw;
+    width: 170px;
+    height: 350px;
     border-radius: 8px;
     box-shadow: 8px 8px 8px rgba(140, 120, 120, 0.3);
     margin: 5px 5px 5px 5px;
 
 }
 
-.sub-menu li, a{
+.sub-menu > ul {
+    list-style: none;
+    width: 80%;
+}
+
+.sub-menu-button {
     
-    text-decoration: none;
+    border-style: none;
+
     border-radius: 8px;
-    margin: 5px;
-    padding: 5px 10px 5px 10px;
-    width: 10vw;
+    margin: 20px;
+    padding: 12px;
 
     display:flex; 
     justify-content: center;
+    transition: 150ms, ease-in-out;
+
+    background-color: inherit;
+    color: inherit;
+
+    width: 80%;
+    height: 8%;
     
 }
 
-.sub-menu a:hover{
-    background-color: var(--white);
-    color: var(--red2);
+.sub-menu-button:hover{
+    color: var(--realWhite);
+    background-color: var(--red2);
+    cursor: pointer;
 }

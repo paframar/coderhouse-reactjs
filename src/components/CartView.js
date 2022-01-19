@@ -21,29 +21,25 @@ const CartView = () => {
                 }
             }, 3000);
 
-        }, []);
-
-        useEffect(()=>{
-        
-        }, [cart])
-
+        }, [cart.items.length]);
 
         // render function
-        const renderItems = () => { cart.items.map( item => {
-
-            return (
-                    <CartItem 
-                    name={item.name}
-                    quantity={item.quantity}
-                    price={item.price} 
-                    />
-            )
-    
-        })}
-
+        const renderItems = () =>  cart.items.map( cartItem => {
+                return (
+                    <CartItem item={cartItem}/>
+                    )    
+                })
+                
+            
+            
         return (
             <div className="cart-view-container">
-                {cart.length > 0 ? renderItems : <p>{message}</p>}
+                <h2 className="cart-view-title">Tu compra</h2>
+                {cart.items.length > 0 ? 
+                    renderItems() 
+                    :
+                    <p className ="cart-view-message">{message}</p>}
+                <h3 className = "cart-view-final-price">TOTAL:  ${cart.finalPrice.toFixed(2)}</h3>
             </div>
         )
 }

@@ -26,6 +26,8 @@ function App() {
       
       <BrowserRouter>
 
+     
+
         <Navbar
         link1="Categorias"
         link2="Ofertas"
@@ -33,6 +35,8 @@ function App() {
         link4="Ayuda"
         btnContent1="Registrarse"
         btnContent2="Loguearse"
+
+        
         />
 
         <Routes>
@@ -51,6 +55,10 @@ function App() {
 
 
 ReactDOM.render(
-<Context><App/></Context>
+
+<Context>
+  <App/>
+</Context>
+
 , document.getElementById("root"));
 

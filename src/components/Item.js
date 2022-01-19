@@ -1,15 +1,24 @@
 import React from 'react';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Cart } from '../context/CartContext';
 
 const Item = ({id, name, imgURL, price, category}) => {
+
+    const navi = useNavigate();
+
+    const routeChange = (path) => {
+        navi(path);
+    }
 
     return (
         <div className="item">
             <h3>{id}</h3>
-            <h2>{name}</h2>
+            <h2 className="item-title">{name}</h2>
             <h4>{category}</h4>
             <p>AR$ {price}</p>
             <img className="item-img" src={imgURL} alt="" />
-            <a href= {`/item/${id}`} className="item-btn-detail" >Ver Más</a>
+            <button className="item-btn-buy" onClick={()=>routeChange(`/item/${id}`)}>Comprar</button>
         </div>
     );
 

@@ -13,10 +13,23 @@
 .nav-brand{ 
 
     color: var(--white);
+    background-color: inherit;
+    font-size: 20px;
+    font-style: bold;
+    letter-spacing: 1px;
+    padding: 20px 40px 20px 40px;
+    border-radius: 8px;
+    border-style: none;
+
+    transition: font-size, 500ms, ease-in-out;
+
 }
 
 .nav-brand:hover{
-    color: var(--realWhite  );
+    color: var(--realWhite);
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.6);
+
 }
 
 .navbar ul{
@@ -68,25 +81,4 @@
     justify-content: space-evenly;
 
     padding-inline: 2vw;
-}
-
-/* nav shopping cart */
-.shopping-cart{
-    transition: 350ms ease-in-out;
-    right: 20px;
-    display:flex;
-    padding-inline: 20px;
-    border-radius: 8px;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    color:var(--white)
-}
-
-.shopping-cart:hover{
-
-    background-color:var(--red2);
-
-    color:var(--realWhite);
-    cursor:pointer;
 }

@@ -1,0 +1,29 @@
+.cart-widget{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.cart-widget > p {
+    padding-top: 5px;
+    
+}
+
+.cart-widget:hover{
+    background-color:var(--red2);
+    color:var(--realWhite);
+    cursor:pointer;
+}
+
+/* nav shopping cart */
+.shopping-cart{
+    transition: 350ms ease-in-out;
+    right: 20px;
+    display:flex;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    color:var(--white)
+}

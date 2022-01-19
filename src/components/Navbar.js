@@ -1,8 +1,16 @@
 import React from 'react';
 import CartWidget from './CartWidget';
+import { useNavigate } from 'react-router-dom';
+
 
 const Navbar = (props) =>{
-    
+
+    const navigate = useNavigate();
+
+    const routeChange = (path) => {
+        navigate(path);
+    }
+
     return(
 
         <nav>
@@ -10,21 +18,21 @@ const Navbar = (props) =>{
             <div className="navbar">
 
                 <i className="logo center material-icons">cloud</i>
-                
-                <h2> <a className="nav-brand" href="/"> cloudcommerce.com </a> </h2>
+                <i className="center material-icons"></i>
+                <h2> <button className="nav-brand" onClick={()=>routeChange('/')}> cloudcommerce.com </button> </h2>
 
                 <ul>
 
-                    <li><button className="link-navbar">
+                    <li><button className="link-navbar" onClick={()=>routeChange('/')}>
                     <i className="center material-icons">home</i>{props.link1}</button></li>
 
-                    <li><button className="link-navbar" href="badges.html">
+                    <li><button className="link-navbar" onClick={()=>routeChange('/')} >
                     <i className="center material-icons">whatshot</i>{props.link2}</button></li>
 
-                    <li><button className="link-navbar" href="collapsible.html">
+                    <li><button className="link-navbar" onClick={()=>routeChange('/')}>
                     <i className="center material-icons">watch_later</i>{props.link3}</button></li>
 
-                    <li><button className="link-navbar" href="collapsible.html">
+                    <li><button className="link-navbar" onClick={()=>routeChange('/')}>
                     <i className="material-icons">help</i>{props.link4}</button></li>
                     
                 </ul>

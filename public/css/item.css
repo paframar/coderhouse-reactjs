@@ -16,11 +16,18 @@
     justify-content: space-evenly;
     align-items: center;
 
+
     padding: 10px;
 
     margin:12px;
     width: 30%;
 
+}
+
+.item-title{
+    color: var(--red);
+    text-align: center;
+    font-size: 16px;
 }
 
 .item-img{
@@ -32,7 +39,7 @@
 
 }
 
-.item-btn-detail{
+.item-btn-buy{
     border:  0.5px solid var(--white);
     color: var(--grey2);
     border-radius: 12px;
@@ -41,14 +48,19 @@
     padding: 8px;
     font-weight: lighter;
     transition: 450ms;
-    text-decoration: none;
+
     text-align: center;
 }
 
-.item-btn-detail:hover{
+.item-btn-buy:hover{
 
     cursor:pointer;
     color:var(--red2);
-    border-color: var(--red2);
+    border-color: var(--red);
+    border-style: none;
+    font-style: bolder;
+    border-left-style: solid;
+    border-right-style: solid;
+    background: white;
 
 }
