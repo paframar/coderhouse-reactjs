@@ -11,6 +11,17 @@
     flex-direction: column;
 }
 
+.cart-view-buttons-container{
+    display:flex;
+    justify-content: flex-end;
+    border-radius: 8px;
+    border-color: var(--red);
+    padding: 10px;
+    width: 92%;
+
+
+}
+
 .cart-view-container > h2{
     margin:8px;
 }
@@ -65,16 +76,12 @@
 .cart-view-final-price{
     box-shadow: 8px 8px 8px rgba(140, 120, 120, 0.3);
 
-    padding: 10px;
-
-
-    color: var(--white);
+    color: var(--red);
     border-color: var(--black);
-    background-color: var(--red);
 
-    border-radius: 10px;
-    border-style: none;
+    border-width: 1px;
 
+    border-radius: 8px;
 
     display: flex;
     flex-direction: row;
@@ -82,17 +89,12 @@
     align-items: center;
 
     padding: 10px;
-
     margin: 12px 0 12px 0;
-
     width: 92%;
 }
 
 .cart-view-title{
     box-shadow: 8px 8px 8px rgba(140, 120, 120, 0.3);
-
-    padding: 10px;
-
 
     color: var(--white);
     border-color: var(--black);
@@ -108,9 +110,7 @@
     align-items: center;
 
     padding: 10px;
-
     margin: 12px 0 12px 0;
-
     width: 92%;
 }
 
@@ -137,6 +137,7 @@
 
     border-color: var(--red);
     background-color: var(--grey);
+    color: var(--red);
 
     border-radius: 10px;
     border-style: none;
@@ -150,6 +151,59 @@
     padding: 10px;
 
     margin:8px;
+    width: 92%;
+    
+}
+
+/* boton para agregar cantidad */
+.cart-view-button{
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    border-width: 1px;
+
+    color: var(--red3);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--black);
+    background-color: #F0F0F0;
+    padding-inline: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0 10px 0 10px;
+    height: 40px;
+    width: 200px;
+
+}
+
+/* HOVER boton para agregar cantidad */
+.cart-view-button:hover{
+    border-radius: 10px;
+    border-color: var(--red3);
+    cursor:pointer;
+    color: #F0F0F0;
+    background-color: #D13639;
+}
+
+.payment-resume-item{
+
+    border-color: var(--black);
+    background-color: var(--realWhite);
+
+    border-radius: 3px;
+    border-style: none;
+    border-bottom-style: dashed;
+    border-width: 1px;
+    font-size: 12px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    padding: 10px;
+
+    margin: 12px 0 12px 0;
+
     width: 92%;
     
 }

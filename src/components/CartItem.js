@@ -12,10 +12,9 @@ const CartItem = (props) => {
             <p> | </p>
             <p>Cantidad: <span className="cart-number">{props.item.quantity}</span></p>
             <p> | </p>
-            <p>Precio unitario: $ <span className="cart-number"><b>{props.item.price}</b></span></p>
+            <p>Precio unitario: $ <span className="cart-number"><b>{props.item.price.toFixed(2)}</b></span></p>
             <p> | </p>
-            <p>Sub total: $ <span className="cart-number"><b>{subTotal}</b></span></p>
-
+            <p>Sub total: $ <span className="cart-number"><b>{subTotal.toFixed(2)}</b></span></p>
         </div>
     )
 }

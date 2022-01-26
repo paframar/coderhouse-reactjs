@@ -11,9 +11,12 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
 import Navbar from './components/Navbar';
 import CartView from './components/CartView';
+import CartPayment from './components/CartPayment';
 
 import Context from './context/CartContext';
 import { Cart } from './context/CartContext';
+
+
 
 
 function App() {
@@ -26,8 +29,6 @@ function App() {
       
       <BrowserRouter>
 
-     
-
         <Navbar
         link1="Categorias"
         link2="Ofertas"
@@ -35,8 +36,6 @@ function App() {
         link4="Ayuda"
         btnContent1="Registrarse"
         btnContent2="Loguearse"
-
-        
         />
 
         <Routes>
@@ -44,6 +43,7 @@ function App() {
           <Route exact path="/cart" element={<CartView/>}/>
           <Route exact path="/item/:id" element={<ItemDetailContainer />} />
           <Route exact path="/category/:category" element={<ItemListContainer />}/>
+          <Route exact path="/payment" element={<CartPayment/>}/>
         </Routes>  
 
       </BrowserRouter>
@@ -52,6 +52,7 @@ function App() {
 
   )
 }
+
 
 
 ReactDOM.render(
