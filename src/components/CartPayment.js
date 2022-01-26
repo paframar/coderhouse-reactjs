@@ -26,8 +26,7 @@ const CartPayment = () => {
             finalPrice: cart.finalPrice
         }
 
-        addDoc(collection(db, 'orders'), {orderToPlace});
-        console.log('placeOrder');
+        addDoc(collection(db, 'orders'), orderToPlace);
     }
 
     // render function
@@ -38,17 +37,48 @@ const CartPayment = () => {
     })
 
     return (
-        <div className="cart-view-container">
+        <div className="cart-view-container flex-col">
 
-            <h2 className="cart-view-title">Pago</h2>
-            {renderItems()}
+            <div className="cart-view-container flex-row">
 
-            <h3 className = "cart-view-final-price">TOTAL:  ${cart.finalPrice.toFixed(2)}</h3>
-            
+                <div className="cart-view-container flex-col">
+                    
+                    <div className="cart-view-container flex-col no-shadow">
+                        <h3 className="cart-view-sub-title">Información de Orden</h3>
+                        <p> Nombre: </p>
+                        <p> Email: </p>
+
+                    </div>
+
+                    <div className="cart-view-container flex-col no-shadow">
+
+                        <h3 className="cart-view-sub-title">Medios de Pago</h3>
+                        <p> Tarjeta de Débito </p>
+                        <p> Tarjeta de Crédito </p>
+
+                    </div>
+
+                </div>
+
+                <div className="cart-view-container flex-col">
+
+                    <h2 className="cart-view-title">Resumen de compra</h2>
+                    {renderItems()}
+
+                    <h3 className = "cart-view-final-price">TOTAL:  ${cart.finalPrice.toFixed(2)}</h3>
+                
+                </div>
+
+                
+
+            </div>
+
             <div className="cart-view-buttons-container">
                 <button className="cart-view-button" onClick={()=>routeChange('/cart')}>Volver al Carrito</button>
                 <button className="cart-view-button" onClick={()=>placeOrder()}>Finalizar Compra</button>
             </div>
+            
+            
 
 
         </div>

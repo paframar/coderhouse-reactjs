@@ -40,15 +40,20 @@ const CartView = () => {
         return (
             <div className="cart-view-container">
                 <h2 className="cart-view-title">Tu compra</h2>
-                {cart.items.length > 0 ? 
-                    renderItems() 
-                    :
-                    <p className ="cart-view-message">{message}</p>}
+                {
+                cart.items.length > 0 ? 
+                renderItems() 
+                :
+                <p className ="cart-view-message">{message}</p>
+                }
                 <h3 className = "cart-view-final-price">TOTAL:  ${cart.finalPrice.toFixed(2)}</h3>
 
                 <div className="cart-view-buttons-container">
                     <button className="cart-view-button" onClick={()=>routeChange('/')}>Volver</button>
+                    {
+                    cart.items.length > 0 ?
                     <button className="cart-view-button" onClick={()=>routeChange('/payment')}>Continuar compra</button>
+                    :null}
                 </div>
                 
             </div>

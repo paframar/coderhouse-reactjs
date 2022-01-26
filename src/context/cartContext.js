@@ -65,9 +65,6 @@ const Context = ({children}) => {
                 finalPrice: setFinalPrice(newCartItems)
              });
         }
-
-
-        
     }
 
     return (
