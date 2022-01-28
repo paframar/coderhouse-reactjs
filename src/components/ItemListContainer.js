@@ -14,8 +14,8 @@ const ItemListContainer = () =>{
     // estado de apertura de submenu categories --- pendiente 
     const [categoriesOpen, setCategoriesOpen] = useState(true);
 
-
     const getItems = (params) => {
+
         return new Promise((resolve, reject)=>{
             setTimeout(()=>{
                     if(params.category !== undefined){
@@ -30,7 +30,7 @@ const ItemListContainer = () =>{
                     }
                 }, 2000)
             })
-        }
+    }
       
     // useEffect Items
     useEffect(()=>{

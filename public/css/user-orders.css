@@ -1,0 +1,58 @@
+.user-orders-form{
+
+    box-shadow: 8px 8px 8px rgba(140, 120, 120, 0.3);
+    background-color: var(--realWhite);
+    color: var(--black);
+    
+    margin: 5px 5px 5px 5px;
+    padding:20px;
+
+    border-color: var(--white);
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    
+}
+
+.user-orders-button{
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    border-width: 1px;
+
+    color: var(--red3);
+    border-style: solid;
+    border-width: 0.8px;
+    border-color: var(--grey);
+    background-color: var(--white);
+    padding-inline: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0 10px 0 10px;
+    height: 40px;
+}
+
+.user-orders-button:hover{
+    border-radius: 10px;
+    border-color: var(--red2);
+    cursor:pointer;
+    color: var(--red2);
+    background-color: var(--realWhite);
+}
+
+.user-orders-input{
+    border-radius: 8px;
+    border-top-style: dashed;
+    border-left-style: dashed;
+
+    cursor:text;
+    color: var(--red2);
+    background-color: var(--realWhite);
+    padding: 10px;
+    border-width: 0.8px;
+
+}
+
+.user-orders-p{
+    font-size: 14px;
+    font-style: bold;
+}

@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CartWidget from './CartWidget';
 import { useNavigate } from 'react-router-dom';
+
+import { auth } from '../FirebaseConfig';
+import { onAuthStateChanged } from 'firebase/auth';
 
 
 const Navbar = (props) =>{
@@ -10,6 +13,14 @@ const Navbar = (props) =>{
     const routeChange = (path) => {
         navigate(path);
     }
+
+    const [currentUser, setCurrentUser] = useState({});
+
+    onAuthStateChanged(auth, (currentUserParam) => {
+        setCurrentUser(currentUserParam);
+    });
+
+
 
     return(
 
@@ -40,11 +51,22 @@ const Navbar = (props) =>{
 
                 <div className="nav-btns-container">
 
-                    <button href="/home" className="link-navbar"><i className="material-icons right">account_circle</i>
-                        {props.btnContent1}</button>
-                    
-                    <button href="/" className="link-navbar"><i className="material-icons right">create</i>{props.btnContent2}</button>          
+                    {currentUser !== null ?
+                        <button onClick={()=>routeChange('/userdashboard')} className="link-navbar">
 
+                                <i className="material-icons">account_box</i>
+                                {currentUser.email}
+                
+                        </button>          
+                    :
+                        <button onClick={()=>routeChange('/userdashboard')} className="link-navbar">
+
+                            <i className="material-icons">key</i>
+                            Ingresar
+                    
+                        </button>   
+                    }
+                    
                     <CartWidget/>
                 
                 </div>

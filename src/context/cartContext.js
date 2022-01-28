@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from "react";
 
 export const Cart = createContext();
 
-const Context = ({children}) => {
+const CartContext = ({children}) => {
     
     const [cart, setCart] = useState({items:[], finalPrice:0});
 
@@ -13,7 +13,6 @@ const Context = ({children}) => {
     const totalQuantity = () => {
         let output = 0;
         cart.items.map( cartItem => output += cartItem.quantity )
-        console.log('totalQuantity')
         return output
     }
 
@@ -75,4 +74,4 @@ const Context = ({children}) => {
     )
 }
 
-export default Context;
+export default CartContext;

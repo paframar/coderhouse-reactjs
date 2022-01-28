@@ -1,0 +1,96 @@
+.cart-payment-form{
+
+    background-color: var(--realWhite);
+    color: var(--black);
+    
+    margin: 5px 5px 5px 5px;
+    padding:20px;
+
+    border-color: var(--white);
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    
+}
+
+.cart-payment-button{
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    border-width: 1px;
+
+    color: var(--red3);
+    border-style: solid;
+    border-width: 0.8px;
+    border-color: var(--grey);
+    background-color: var(--white);
+    padding-inline: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0 10px 0 10px;
+    height: 40px;
+}
+
+.cart-payment-button:hover{
+    border-radius: 10px;
+    border-color: var(--red2);
+    cursor:pointer;
+    color: var(--red2);
+    background-color: var(--realWhite);
+}
+
+.cart-payment-input{
+
+    border-style: none;
+
+    border-bottom-style: dashed;
+
+    cursor:text;
+    color: var(--red2);
+    background-color: var(--realWhite);
+    padding: 10px;
+    border-width: 0.8px;
+    font-size: 14px;
+    width: 90%;
+    border-left: 10px;
+
+}
+
+.cart-payment-textarea{
+
+    resize:none;
+    border-style: none;
+
+    border-bottom-style: dashed;
+
+    cursor:text;
+    color: var(--red2);
+    background-color: var(--realWhite);
+    padding: 10px;
+    border-width: 0.8px;
+    font-size: 14px;
+    width: 90%;
+    border-left: 10px;
+
+}
+
+.cart-payment-p{
+    font-size: 14px;
+    font-style: bolder;
+}
+
+.cart-payment-sub-title{
+    box-shadow: 8px 8px 8px rgba(140, 120, 120, 0.3);
+
+    color: var(--grey2);
+    border-color: var(--red3);
+    background-color: var(--white);
+
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+
+    font-size: 16px;
+    padding: 10px;
+    margin: 12px 0 12px 0;
+    width: 92%;
+}

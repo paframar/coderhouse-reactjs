@@ -13,19 +13,21 @@ import Navbar from './components/Navbar';
 import CartView from './components/CartView';
 import CartPayment from './components/CartPayment';
 
-import Context from './context/CartContext';
-import { Cart } from './context/CartContext';
+import UserDashboard from './components/UserDashboard';
 
+import CartContext, { Cart } from './context/CartContext';
 
+import OrderPlaced from './components/OrderPlaced';
 
 
 function App() {
 
-  const value = useContext(Cart);
+  const cartContextValue = useContext(Cart);
 
   return (
     
-    <Cart.Provider value = {value}>
+
+    <Cart.Provider value = {cartContextValue}>
       
       <BrowserRouter>
 
@@ -34,21 +36,23 @@ function App() {
         link2="Ofertas"
         link3="Historial"
         link4="Ayuda"
-        btnContent1="Registrarse"
-        btnContent2="Loguearse"
         />
 
         <Routes>
-          <Route exact path="/" element={<ItemListContainer />}/>
-          <Route exact path="/cart" element={<CartView/>}/>
+          <Route exact path="/" element={<ItemListContainer />} />
+          <Route exact path="/cart" element={<CartView/>} />
           <Route exact path="/item/:id" element={<ItemDetailContainer />} />
-          <Route exact path="/category/:category" element={<ItemListContainer />}/>
-          <Route exact path="/payment" element={<CartPayment/>}/>
+          <Route exact path="/category/:category" element={<ItemListContainer />} />
+          <Route exact path="/payment" element={<CartPayment/>} />
+          <Route exact path="/userdashboard" element={<UserDashboard/>} />
+          <Route exact path="/orderplaced" element={<OrderPlaced/>} />
         </Routes>  
 
       </BrowserRouter>
 
     </Cart.Provider>
+
+
 
   )
 }
@@ -56,10 +60,8 @@ function App() {
 
 
 ReactDOM.render(
-
-<Context>
-  <App/>
-</Context>
-
+    <CartContext>
+      <App/>
+    </CartContext>
 , document.getElementById("root"));
 

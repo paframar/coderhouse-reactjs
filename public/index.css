@@ -9,3 +9,7 @@
 @import "/css/global.css";
 @import "/css/cart-view.css";
 @import "/css/cart-widget.css";
+@import "/css/user-login.css";
+@import "/css/user-orders.css";
+@import "/css/cart-payment.css";
+@import "/css/order-placed.css";
