@@ -1,70 +1,75 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Cloudcommerce.com
 
-## Available Scripts
+Final project of React JS course.
 
-In the project directory, you can run:
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- No CSS Frameworks used in this project.
+- Firebase Firestore as Database.
+- Firebase Authorization (email & password) as Auth method for users.
+- User dashboard included.
+- Navigation provided by react-router-dom
+- React Context API used for providing information and functionality to other components.
+- A Demo of the project can be found at the link below.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Demo
+https://imgur.com/BzXimIS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Run Locally
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Clone the project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+  git clone https://github.com/paframar/coderhouse-reactjs.git
+```
 
-### `npm run eject`
+Go to the project directory
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+  cd coderhouse-reactjs
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Install dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+  npm install
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Start the server
 
-## Learn More
+```bash
+  npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Acknowledgements
 
-### Code Splitting
+ - [PROGRAMO desde CERO un CLON funcional de TIKTOK con React, Backend y JavaScript para PRINCIPIANTES](https://www.youtube.com/watch?v=cf4UnP7B-vo&list=PLnTSfb_Vpt_m-RQOGBET-1g99zCMlQ-8n&index=1)
+ - [React Shopping Cart Tutorial | Context API with useReducer Hook in React JS](https://www.youtube.com/watch?v=HptuMAUaNGk&list=PLnTSfb_Vpt_m-RQOGBET-1g99zCMlQ-8n&index=2&t=909s)
+ - [React Context API with Project | useContext Hook | createContext | State Management Tutorial](https://www.youtube.com/watch?v=gQ_l-1zpVBo&list=PLnTSfb_Vpt_m-RQOGBET-1g99zCMlQ-8n&index=3)
+ - [React & Firebase Firestore CRUD](https://www.youtube.com/watch?v=Y9-UkL6ent4&list=PLnTSfb_Vpt_m-RQOGBET-1g99zCMlQ-8n&index=4&t=3646s)
+ - [Practical React - 10 - Date Picker](https://www.youtube.com/watch?v=tojwQEdI-QI&list=PLnTSfb_Vpt_m-RQOGBET-1g99zCMlQ-8n&index=5&t=327s)
+## Color Reference
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| red3 | ![#811307](https://via.placeholder.com/10/811307?text=+) #811307 |
+| red2 | ![#F12B15](https://via.placeholder.com/10/F12B15?text=+) #F12B15 |
+| red | ![#D13639](https://via.placeholder.com/10/D13639?text=+) #D13639 |
+| black | ![#2D2D2D](https://via.placeholder.com/10/2D2D2D?text=+) #2D2D2D |
+| grey2 | ![#585151](https://via.placeholder.com/10/585151?text=+) #585151 |
+| grey | ![#c4c0c0](https://via.placeholder.com/10/c4c0c0?text=+) #c4c0c0 |
+| white | ![#e0e0e0](https://via.placeholder.com/10/e0e0e0?text=+) #e0e0e0 |
+| realWhite | ![#F0F0F0](https://via.placeholder.com/10/F0F0F0?text=+) #F0F0F0 |
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- [@pablomarconi](https://www.github.com/paframar)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
