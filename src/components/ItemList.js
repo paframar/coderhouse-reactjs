@@ -2,7 +2,6 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import Item from './Item';
 
-
 const ItemList = ({items}) => {
 
     const [message, setMessage] = useState('Cargando items...');
@@ -18,28 +17,25 @@ const ItemList = ({items}) => {
         }, 3000);
 
     }, [items]);
-        
+
 
     // render function
     const renderItems = items.map( item => {
 
         return (
-            
-                <Item 
-                    key={item.id.toString()}
-                    id={item.id} 
+                <Item   
+                    id={item.id}
                     name={item.name} 
                     category={item.category} 
                     imgURL={item.imgUrl} 
                     price={item.price} 
                 />
+
             
         )
 
-    })
-                
-    
 
+    }) 
 
     return (
         <div className="item-list">

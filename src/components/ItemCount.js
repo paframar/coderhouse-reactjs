@@ -2,8 +2,6 @@ import React from 'react';
 
 const ItemCount = ({displayValue, stock, onAdd, onRemove}) => {
 
-    
-    
     return (
         <div>
 
@@ -11,15 +9,14 @@ const ItemCount = ({displayValue, stock, onAdd, onRemove}) => {
 
             <div className="item-count-viewer"></div>
             
-            <div className="item-count-add-ui">
+            <div className="flex-row item-count-add-ui">
 
-                {/* boton - */}
                 <button className="item-count-button" onClick= {()=>onRemove(displayValue)} > - </button>
                 
-                {/* resultado */}
-                <div className="item-count-add-ui-viewer">{displayValue}</div>
+                <div className="item-count-add-ui-viewer">{displayValue} / {stock}</div>
 
-                {/* boton + */}
+
+
                 <button className="item-count-button" onClick= {()=>onAdd(displayValue, stock)} > + </button>
 
             </div>

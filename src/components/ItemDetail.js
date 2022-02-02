@@ -1,35 +1,29 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ItemCount from '../components/ItemCount';
 
 import { Cart } from '../context/CartContext';
 
-
-
 const ItemDetail = ({itemParam}) =>{
 
+    // hooks
     const cartProvider = useContext(Cart);
-
-    // cuenta del itemCount
-    const [count, setCount] = useState(1);
-    
-    // state que cambia al hacer click en "Agregar al carrito"
-    const [addedToCart, setAddedToCart] = useState(false);
-    
-    // hook para navegar hacia el carrito con btn en lugar de usar <a>
     const navigate = useNavigate();
 
+    // states
+    const [count, setCount] = useState(1);
+    const [addedToCart, setAddedToCart] = useState(false);
+    
+    // functions
     const routeChange = (path) => {
         navigate(path);
     }
 
-    // click en "Agregar al carrito"
     const handleAddToCart = () =>{
         cartProvider.addToCart(itemParam, count);
         setAddedToCart(true);
     }
 
-    // () => incrementa la cuenta del ItemCount
     const increaseCount = (countParam, stockParam) => {
         
         if (countParam < stockParam){
@@ -39,7 +33,6 @@ const ItemDetail = ({itemParam}) =>{
         }
     }
     
-    // () => decrementa la cuenta del ItemCount
     const decreaseCount = (countParam) => {
 
         if (countParam > 1){
@@ -59,12 +52,10 @@ const ItemDetail = ({itemParam}) =>{
 
                 <div className="item-detail-div-right">
 
-                    <h4>{itemParam.id}</h4>
-                    <h2>{itemParam.name}</h2>
-                    <h3>{itemParam.category}</h3>
-                    <h2>$ {itemParam.price}</h2>
-                    <p>{itemParam.description}</p>
-                    
+                    <h2 className="p-10" >{itemParam.name}</h2>
+                    <h3 className="p-10" >{itemParam.category}</h3>
+                    <h2 className="p-10" >$ {itemParam.price}</h2>
+                    <p className="p-10" >{itemParam.description}</p>
                     
                     <div className="item-detail-div-ui">
                     
@@ -76,7 +67,7 @@ const ItemDetail = ({itemParam}) =>{
                             :
                             <div className="item-detail-div-ui">
                                 <button className="item-detail-button" onClick={handleAddToCart}>Agregar al carrito</button>
-                                <ItemCount stock={5} displayValue={count} onAdd={increaseCount} onRemove={decreaseCount} />
+                                <ItemCount stock={itemParam.stock} displayValue={count} onAdd={increaseCount} onRemove={decreaseCount} />
                             </div>   
                         }
 

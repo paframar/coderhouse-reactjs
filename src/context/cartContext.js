@@ -27,6 +27,36 @@ const CartContext = ({children}) => {
     const isInCart = (itemIDParam) => cart.items.some(cartItem => cartItem.id === itemIDParam)
 
 
+    const removeFromCart = (itemParam, quantityParam) => {
+
+        if (isInCart(itemParam.id)){
+
+            let cartItems = [...cart.items]
+           
+           cartItems.map((cartItem, index) => {
+
+               if (cartItem.id === itemParam.id) {
+
+                if (cartItem.quantity === 1) {
+                    cartItems.splice(index, 1);
+                }else{    
+                    cartItem.quantity -= quantityParam;
+                }
+            
+               } 
+           })
+
+           setCart({
+               items: cartItems,
+               finalPrice: setFinalPrice(cartItems)
+            });
+        
+
+        
+        }
+
+    }
+
     const addToCart = (itemParam, quantityParam) => {
         
         // si el producto esta agregado al carrito
@@ -68,10 +98,11 @@ const CartContext = ({children}) => {
 
     return (
         <Cart.Provider 
-        value = {{cart, setCart, addToCart, totalQuantity}}>
+        value = {{cart, setCart, addToCart, removeFromCart, totalQuantity}}>
             {children}
         </Cart.Provider>
     )
+
 }
 
-export default CartContext;
+export default CartContext

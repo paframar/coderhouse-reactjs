@@ -4,13 +4,11 @@
     background-color: var(--realWhite);
     color: var(--black);
     
-    margin: 5px 5px 5px 5px;
-    padding:20px;
-
     border-color: var(--white);
     border-radius: 8px;
     border-style: solid;
     border-width: 1px;
+    min-height: 473px;
     
 }
 
@@ -24,11 +22,22 @@
     border-width: 0.8px;
     border-color: var(--grey);
     background-color: var(--white);
-    padding-inline: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+
+
     margin: 0 10px 0 10px;
-    height: 40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 20px;
+    max-width: 50px;
+}
+
+.user-orders-icon{
+    min-height: 10px;
+    max-width: 50px;
+
+    
 }
 
 .user-orders-button:hover{
@@ -56,3 +65,4 @@
     font-size: 14px;
     font-style: bold;
 }
+

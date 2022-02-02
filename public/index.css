@@ -4,6 +4,7 @@
 @import "/css/item-list-container.css";
 @import "/css/item-list.css";
 @import "/css/item.css";
+@import "/css/order.css";
 @import "/css/navbar.css";
 @import "/css/submenu.css";
 @import "/css/global.css";
@@ -11,5 +12,6 @@
 @import "/css/cart-widget.css";
 @import "/css/user-login.css";
 @import "/css/user-orders.css";
+@import "/css/user-info.css";
 @import "/css/cart-payment.css";
 @import "/css/order-placed.css";

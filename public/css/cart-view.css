@@ -26,8 +26,6 @@
     border-color: var(--red);
     padding: 10px;
     width: 92%;
-
-
 }
 
 .cart-view-container > h2{
@@ -36,6 +34,31 @@
 
 .cart-view-container > p {
     font-size: 12px;
+}
+
+.cart-view-item-button{
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    border-width: 1px;
+
+    color: var(--red3);
+    border-style: solid;
+    border-width: 0.8px;
+    border-color: var(--grey);
+    background-color: var(--white);
+    padding-inline: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0 10px 0 10px;
+    height: 40px;
+}
+
+.cart-view-item-button:hover{
+    border-radius: 10px;
+    border-color: var(--red2);
+    cursor:pointer;
+    color: var(--red2);
+    background-color: var(--realWhite);
 }
 
 .cart-view-item{
@@ -120,8 +143,6 @@
     padding: 10px;
     margin: 12px 0 12px 0;
     width: 92%;
-
-
 }
 
 

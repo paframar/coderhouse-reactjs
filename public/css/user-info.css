@@ -1,11 +1,12 @@
-.user-login-form{
+.user-info-form{
 
     box-shadow: 8px 8px 8px rgba(140, 120, 120, 0.3);
     background-color: var(--realWhite);
     color: var(--black);
     
     margin: 5px 5px 5px 5px;
-    padding: 20px;
+    padding:20px;
+
 
     border-color: var(--white);
     border-radius: 8px;
@@ -14,7 +15,7 @@
     
 }
 
-.user-login-button{
+.user-info-button{
     transition: all 0.3s ease-in-out;
     border-radius: 10px;
     border-width: 1px;
@@ -31,7 +32,7 @@
     height: 40px;
 }
 
-.user-login-button:hover{
+.user-info-button:hover{
     border-radius: 10px;
     border-color: var(--red2);
     cursor:pointer;
@@ -39,7 +40,7 @@
     background-color: var(--realWhite);
 }
 
-.user-login-input{
+.user-info-input{
     border-radius: 8px;
     border-top-style: dashed;
     border-left-style: dashed;
@@ -52,15 +53,8 @@
 
 }
 
-.user-login-p{
+.user-info-p{
     font-size: 14px;
     font-style: bold;
-    color: var(--grey2);
-}
 
-.user-login-label{
-    font-size: 16px;
-    font-style: bolder;
-    text-align: left;
-    color: var(--red3);
 }

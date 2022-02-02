@@ -2,40 +2,56 @@ import React from 'react';
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router';
 import ItemList from './ItemList';
-import data from '../data'
 import SubMenuCategories from './SubMenuCategories';
 
+import { db } from '../FirebaseConfig'
+import  { collection, getDocs } from "firebase/firestore";
 
-const ItemListContainer = () =>{
+
+
+const ItemListContainer = (props) =>{
 
     let params = useParams();
+
     const [items, setItems] = useState([]);
 
-    // estado de apertura de submenu categories --- pendiente 
-    const [categoriesOpen, setCategoriesOpen] = useState(true);
+    const getItemsFromFirebase = (params) => {
 
-    const getItems = (params) => {
+        let itemsCollection = collection(db, 'items');
 
-        return new Promise((resolve, reject)=>{
-            setTimeout(()=>{
-                    if(params.category !== undefined){
-                        resolve(
-                            data.filter(
-                                item=>
-                                    (item.category.toLowerCase().split(' ').join('')) === params.category
-                            )                            
-                        );
-                    }else{
-                        resolve(data)
+        getDocs(itemsCollection).then((response) => {
+            
+            let itemsFromFirebase = [];
+
+            if(params.category === undefined){
+
+                itemsFromFirebase = response.docs.map( doc => {
+                    return doc
+                })
+                
+            }else{
+
+                itemsFromFirebase = response.docs.filter( doc => {
+                    if ( doc.data().category.toLowerCase().split(' ').join('') === params.category){
+                        return doc
                     }
-                }, 2000)
+                })
+                
+            }
+
+            
+            let parsedItems = itemsFromFirebase.map(item => {
+                return {id:item.id, ...item.data()}
             })
+
+            setItems(parsedItems)
+            
+        })
     }
       
     // useEffect Items
     useEffect(()=>{
-        const promise = getItems(params);
-        promise.then(resolved => {setItems(resolved)})
+        getItemsFromFirebase(params);
     }, [params]);
 
     return(
@@ -43,13 +59,16 @@ const ItemListContainer = () =>{
             <div>
                 
                 <div className = "item-list-container">
+                    {props.categories === 'show' ?
+                        <SubMenuCategories />
+                    : null}
                     
-                    {(categoriesOpen) ? <SubMenuCategories />:null}
-                    
-                    <ItemList items={items}/>
-                
+                    {items.length > 0 ?
+                        <ItemList items={items}/>
+                    : null}
+
                 </div>
-                    
+    
             </div>
 
     );

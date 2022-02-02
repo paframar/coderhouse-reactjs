@@ -4,31 +4,25 @@ import { useNavigate } from 'react-router-dom';
 import { Cart } from '../context/CartContext';
 import PaymentResumeItem from './PaymentResumeItem';
 
-import FirebaseConfig, {db} from '../FirebaseConfig';
-import {collection, 
-        getDocs, 
-        getDoc, 
-        query, 
-        doc,
-        addDoc, 
-        deleteDoc, 
-        updateDoc} from "firebase/firestore";
+import {db} from '../FirebaseConfig';
+import { collection, addDoc } from "firebase/firestore";
 
 import { auth } from '../FirebaseConfig';
 
 import { onAuthStateChanged } from 'firebase/auth';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const CartPayment = () => {
 
     // hooks
+
     const navigate = useNavigate();
-    const {cart} = useContext(Cart);
+    const {cart, setCart} = useContext(Cart);
 
     // states
 
     const [currentUser, setCurrentUser] = useState({});
-
+    const [newOrderID, setNewOrderID] = useState('');
     const [Order, setOrder] = useState(
         {   
             user:{uid:'', email: ''},
@@ -36,29 +30,49 @@ const CartPayment = () => {
             cart: {items: cart.items, finalPrice: cart.finalPrice}
         });
 
-
+    // component updates
 
     onAuthStateChanged(auth, (currentUserParam) => {
         setCurrentUser(currentUserParam);
     });
 
+    // useEffect used to advance automaticaly to CartPayment
+    // when a newOrderID is detected
+    useEffect(() => {
+        if(newOrderID !== "") {
+            const id = newOrderID;
+            setNewOrderID('')
+            routeChange(`/orderplaced/${id}`);
+        }
+    }, [newOrderID]);
 
     // functions
 
+    // useNavigate
     const routeChange = (path) =>{
         navigate(path);
     }
-    
-    // ORDERS CRUD Functions
-    const placeOrder = () => {
-        addDoc(collection(db, 'orders'), Order)
+
+    // place order to firebase 
+    const placeOrder =  () => {
+        
+        // addDoc to 'orders'
+        let ordersCollection = collection(db, 'orders');
+
+        addDoc(ordersCollection, Order).then(responseNewOrder =>{
+
+            // then clear the cart
+            setCart({ items : [], finalPrice: 0})
+
+            // then setNewOrderID
+            setNewOrderID(responseNewOrder.id)
+        });
     }
 
+    // updates order state data when inputs onChange event is dispatched
     const insertBuyerData = (e) => {
 
         const targetID = e.target.id;
-
-        console.log('targetID: ', targetID);
 
         const order = Order;
 
@@ -92,6 +106,7 @@ const CartPayment = () => {
         
     }
 
+    // render <PaymentResumeItem/> list
     const renderItems = () =>  cart.items.map( cartItem => {
     return (
         <PaymentResumeItem item={cartItem} />
@@ -167,11 +182,17 @@ const CartPayment = () => {
             </div>
 
             <div className="cart-view-buttons-container">
+
                 <button className="cart-view-button" onClick={()=>routeChange('/cart')}>Volver al Carrito</button>
+                
                 <button className="cart-view-button" id="place-order-button" 
-                    onClick={(e)=>{insertBuyerData(e); placeOrder(); routeChange('/orderplaced')}}>Crear Orden de Compra</button>
-                <button className="cart-view-button" onClick={()=>{console.log(Order);}}>ver Order</button>
-                <button className="cart-view-button" onClick={()=>{console.log(currentUser);}}>ver current user</button>
+                    onClick={(e)=>{
+                        insertBuyerData(e); 
+                        placeOrder();
+                        }
+                     }
+                >Crear Orden de Compra</button>
+
             </div>
             
         </div>

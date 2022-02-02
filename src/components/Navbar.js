@@ -34,7 +34,7 @@ const Navbar = (props) =>{
 
                 <ul>
 
-                    <li><button className="link-navbar" onClick={()=>routeChange('/')}>
+                    <li><button className="link-navbar" onClick={()=>routeChange('/categories')}>
                     <i className="center material-icons">home</i>{props.link1}</button></li>
 
                     <li><button className="link-navbar" onClick={()=>routeChange('/')} >

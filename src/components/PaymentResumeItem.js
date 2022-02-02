@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const PaymentResumeItem = (props) => {
 
     const subTotal = props.item.price * props.item.quantity;

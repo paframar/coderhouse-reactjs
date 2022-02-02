@@ -3,8 +3,6 @@ import {useContext} from 'react';
 import {Cart} from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 
-
-
 const CartWidget = () =>{
     
     const navigate = useNavigate();

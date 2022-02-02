@@ -1,24 +1,23 @@
 import React from 'react';
-import {useState, useEffect, useContext} from 'react';
+import {useState, useEffect} from 'react';
 import {useParams} from 'react-router';
 
 import ItemDetail from './ItemDetail';
 import data from '../data';
 
+import { db } from '../FirebaseConfig'
+import { collection, getDocs } from "firebase/firestore";
+
+
 
 
 const ItemDetailContainer = () => {
 
-
-    
-    // inicializa el item que va a mostrar como ""
+    // states
     const [item, setItem] = useState('');
 
-    // toma el id de la URL
-    let itemID = useParams();
-    
-    // pasa a number ese ID
-    itemID = Number(itemID.id);
+    let itemID = useParams().id.toString();
+  
 
     const getItem = (id) => {
         return new Promise((resolve, reject)=>{
@@ -31,14 +30,22 @@ const ItemDetailContainer = () => {
     }
 
     useEffect(()=>{
+        const itemsCollection = collection(db, 'items')
+
+        getDocs(itemsCollection).then((response) =>{
             
-        const promise = getItem(itemID);
-        promise.then(itemResult => {
-            setItem(itemResult[0]);
-        });
+            response.docs.filter((doc)=>{
+                
+                if (doc.id === itemID){
+                    setItem( {id:doc.id, ...doc.data()})
+                }
+
+            })
+
+        })
+        
 
     },[itemID]);
-
 
     return (
             <div className="item-detail-container">
